@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <h1 class="welcome">Welcome!!!! to my weather app</h1>
+    <div class="card">
+        <div class="search"><em><input type="text" placeholder="Enter city name....." spellcheck="false"></em>
+            <button><img src="download.png"></button>
+        </div>
+        <div class="weather">
+            <h1 class="city"></h1>
+        <div><h2 class="temp"></h2>
+            <h2 class="humidity"></h2>
+            <h2 class="pressure"></h2>
+            <h2 class="wind"></h2>
+            <h2 class="conditions"></h2>
+         </div>   
+        </div>
+    </div>
+<script>
+    const apiid="5ada13072a7ab896d861231654d31219";
+;   const api="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const searchbox=document.querySelector(".search input");
+    const searchbtn=document.querySelector(".search button");
+    async function weather(city)
+    {
+        const resp=await fetch(api+city+`&appid=${apiid}`);
+        var data=await resp.json();
+        console.log(data);
+        document.querySelector(".temp").innerHTML="TEMPERATURE : " + (data.main.temp) +" °C";
+        document.querySelector(".humidity").innerHTML="HUMIDITY : " + (data.main.humidity) +" %";
+        document.querySelector(".pressure").innerHTML="PRESSURE : " + (data.main.humidity) +" hPa";
+        document.querySelector(".wind").innerHTML="WIND SPEED : " + (data.wind.speed) +" meter/sec";
+        document.querySelector(".conditions").innerHTML="CONDITIONS : " + (data.weather[0].description) ;     
+        document.querySelector(".city").innerHTML="CITY : "+ data.name;
+    }
+    searchbtn.addEventListener("click",()=>{
+        weather(searchbox.value);
+    })
+</script>
+</body>
+</html>

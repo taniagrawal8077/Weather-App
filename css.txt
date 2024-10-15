@@ -1,0 +1,51 @@
+*{
+    padding: 0px;
+    margin:0px;
+    font-family: cursive;
+}
+body{
+    background:linear-gradient(100deg,rgb(65, 11, 11),rgb(30, 27, 27));
+}
+.card{
+    width: 80%;
+    background:linear-gradient(80deg,#bee166,#7abb20);
+    text-align: center;
+    padding:40 30px;
+    margin: 180px auto ;
+    border-radius: 25px;
+    max-width: 500px;
+}
+.search{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+.search input{
+    outline:0px;
+    padding: 13px 25px;
+    margin: 10px 16px;
+    height: 80px;
+    font-size:larger;
+    border-radius: 20px;
+    flex:1;
+}
+.search button{
+   border:0px;
+   outline: 0px;
+   background:white;
+    width:100px;
+    height:100px;
+    margin-right: 40px;
+    border-radius: 50%;
+   cursor: pointer;
+}
+.search button img{
+    width:60px;
+}
+.welcome{
+    text-align: center;
+    height:50px;
+    width:100%;
+    background-color: rgb(185, 137, 224);
+}
